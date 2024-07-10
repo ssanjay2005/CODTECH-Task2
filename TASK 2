@@ -1,0 +1,133 @@
+class Student:
+    def __init__(self, name):
+        # Initialize student with name and an empty dictionary for grades
+        self.name = name
+        self.grades = {}
+
+    def add_grade(self, subject, grade):
+        # Add grade to the subject. If subject doesn't exist, create a new entry.
+        if subject in self.grades:
+            self.grades[subject].append(grade)
+        else:
+            self.grades[subject] = [grade]
+
+    def calculate_average(self):
+        # Calculate the average grade across all subjects
+        total_grades = sum([sum(grades) for grades in self.grades.values()])
+        num_grades = sum([len(grades) for grades in self.grades.values()])
+        if num_grades == 0:
+            return 0
+        return total_grades / num_grades
+
+    def get_letter_grade(self, average):
+        # Determine letter grade based on the average grade
+        if average >= 90:
+            return 'A'
+        elif average >= 80:
+            return 'B'
+        elif average >= 70:
+            return 'C'
+        elif average >= 60:
+            return 'D'
+        else:
+            return 'F'
+
+    def calculate_gpa(self):
+        # Calculate GPA based on the overall average grade
+        average = self.calculate_average()
+        letter_grade = self.get_letter_grade(average)
+        grade_point_mapping = {'A': 4.0, 'B': 3.0, 'C': 2.0, 'D': 1.0, 'F': 0.0}
+        return grade_point_mapping[letter_grade]
+
+    def display_grades(self):
+        # Display the student's grades, average, letter grade, and GPA
+        print(f"Grades for {self.name}:")
+        for subject, grades in self.grades.items():
+            subject_average = sum(grades) / len(grades)
+            letter_grade = self.get_letter_grade(subject_average)
+            print(f"{subject}: {grades} (Average: {subject_average:.2f}, Letter Grade: {letter_grade})")
+        overall_average = self.calculate_average()
+        print(f"Overall Average Grade: {overall_average:.2f}")
+        print(f"Overall Letter Grade: {self.get_letter_grade(overall_average)}")
+        print(f"GPA: {self.calculate_gpa():.2f}")
+
+class Gradebook:
+    def __init__(self):
+        # Initialize the gradebook with an empty dictionary for students
+        self.students = {}
+
+    def add_student(self, student):
+        # Add a student to the gradebook
+        self.students[student.name] = student
+
+    def get_student(self, name):
+        # Retrieve a student by name
+        return self.students.get(name)
+
+    def display_all_students(self):
+        # Display grades for all students in the gradebook
+        for student in self.students.values():
+            student.display_grades()
+
+def main():
+    # Main function to handle user interaction
+    gradebook = Gradebook()
+
+    while True:
+        # Display menu options
+        print("\n1. Add Student")
+        print("2. Add Grade")
+        print("3. Display Student Grades")
+        print("4. Display All Students' Grades")
+        print("5. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            # Add a new student
+            name = input("Enter student name: ")
+            student = Student(name)
+            gradebook.add_student(student)
+            print(f"Student {name} added.")
+        
+        elif choice == '2':
+            # Add grade for an existing student
+            name = input("Enter student name: ")
+            student = gradebook.get_student(name)
+            if student:
+                subject = input("Enter subject: ")
+                try:
+                    grade = float(input("Enter grade (0-100): "))
+                    if 0 <= grade <= 100:
+                        student.add_grade(subject, grade)
+                        print(f"Grade {grade} added to {subject} for {name}.")
+                    else:
+                        print("Grade must be between 0 and 100.")
+                except ValueError:
+                    print("Invalid grade. Please enter a number between 0 and 100.")
+            else:
+                print(f"Student {name} not found.")
+        
+        elif choice == '3':
+            # Display grades for a specific student
+            name = input("Enter student name: ")
+            student = gradebook.get_student(name)
+            if student:
+                student.display_grades()
+            else:
+                print(f"Student {name} not found.")
+        
+        elif choice == '4':
+            # Display grades for all students
+            gradebook.display_all_students()
+        
+        elif choice == '5':
+            # Exit the program
+            print("Exiting program.")
+            break
+        
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    # Run the main function if this script is executed
+    main()
