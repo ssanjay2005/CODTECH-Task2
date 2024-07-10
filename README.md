@@ -13,14 +13,14 @@ Basic STUDENT GRADE TRACKER Program
 
 Class Definitions:<br/>
 <br/>
-  Student Class:
+  Student Class:<br/>
 <br/>       * __init__: Initializes the student with a name and an empty dictionary for grades.
 <br/>       * add_grade: Adds a grade for a subject.
 <br/>       * calculate_average: Calculates the overall average grade across all subjects.
 <br/>       * get_letter_grade: Converts a numeric average to a letter grade.
 <br/>  * calculate_gpa: Calculates the GPA based on the overall average grade.
 <br/>  * display_grades: Displays the grades for each subject, the subject average, letter grade, overall average, overall letter grade, and GPA.
-<br/>Gradebook Class:
+<br/>Gradebook Class:<br/>
 <br/>       * __init__: Initializes an empty dictionary to store students.
 <br/>       * add_student: Adds a student to the gradebook.
 <br/>       * get_student: Retrieves a student by name.
