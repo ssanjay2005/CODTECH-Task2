@@ -28,8 +28,16 @@ Class Definitions:<br/>
 <br/>       * display_all_students: Displays grades for all students in the gradebook.
 <br/><br/>
 User Interaction:<br/>
-<br/>
   <br/>*The main function handles user input for adding students, adding grades, displaying grades for a specific student, displaying grades for all students, and exiting the program.
-   <br/>*Validates grade inputs to ensure they are between 0 and 100.
+   <br/>*Validates grade inputs to ensure they are between 0 and 100.<br/><br/>
+Explanation of Features<br/>
+<br/>
+   Grade Input Validation:
+ <br/>       When the user adds a grade, the program checks if the grade is a valid number between 0 and 100. If not, it prompts the user to input a valid grade.
+<br/><br/>
+   Letter Grade Calculation:
+    <br/>   The get_letter_grade method can now accept an average grade as an argument, although it defaults to calculating the average if not provided.<br/><br/>
 
+   User Interaction:<br/><br/>
+        The main function handles user inputs for adding students and grades, and validates the inputs for grade values.
 
