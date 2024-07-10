@@ -32,10 +32,10 @@ User Interaction:<br/>
    <br/>*Validates grade inputs to ensure they are between 0 and 100.<br/><br/>
 Explanation of Features<br/>
 <br/>
-   Grade Input Validation:
+   Grade Input Validation:<br/>
  <br/>       When the user adds a grade, the program checks if the grade is a valid number between 0 and 100. If not, it prompts the user to input a valid grade.
 <br/><br/>
-   Letter Grade Calculation:
+   Letter Grade Calculation:<br/>
     <br/>   The get_letter_grade method can now accept an average grade as an argument, although it defaults to calculating the average if not provided.<br/><br/>
 
    User Interaction:<br/><br/>
