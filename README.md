@@ -4,7 +4,8 @@
 **Domain**:Python Programming <br/>
 **Mentor**:Santhosh Kumar <br/>
 
-OVERVIEW OF THE PROJECT
+OVERVIEW OF THE PROJECT<br/>
+<br/>
 ![Screenshot from 2024-07-10 03-03-31](https://github.com/ssanjay2005/CODTECH-Task2/assets/175134193/9a56bb64-e5e2-431b-b036-424e7dd66978)
 
 Project : STUDENT GRADE TRACKER
